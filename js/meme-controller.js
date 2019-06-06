@@ -1,12 +1,13 @@
 'use strict';
 
 function onInitMain() {
-    renderGallery()
+    let imgs = getImgs();
+    renderGallery(imgs)
 }
 
 
-function renderGallery() {
-    let imgs = getImgs();
+function renderGallery(imgs) {
+
 
     var strHtmls = imgs.map(img => {
         return `
@@ -21,4 +22,9 @@ function renderGallery() {
 function imgPicked(id) {
     // console.log('img picked:', id);
     setMeme(id);
+}
+
+function onMemesFilter(value) {
+    let imgs = memesFilter(value);
+    renderGallery(imgs)
 }
