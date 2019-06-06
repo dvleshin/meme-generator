@@ -18,11 +18,11 @@
             <canvas id="meme-area"></canvas>
         </div>
         <div class="control-box">
-            <input type="text" placeholder="input your text" id="memeText" value=""><button>X</button>
+            <input type="text" onkeyup="onTxtChanged()" placeholder="input your text" id="memeText"><button>X</button>
             <div>
                 <input type="color" id="memeTextColor" value="#000000">
-                <button>+</button>
-                <button>-</button>
+                <button onclick="onChangeTxtSize(1)">+</button>
+                <button onclick="onChangeTxtSize(-1)">-</button>
                 <select>
                     <option value="Impact">Impact</option>
                     <option value="Arial">Arial</option>

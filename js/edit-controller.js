@@ -20,8 +20,6 @@ function drawMeme() {
 
     img.onload = () => {
         drawBgImg(img);
-        drawDinamicTxt(img);
-        drawTextColor()
     };
 }
 
@@ -29,12 +27,15 @@ function drawBgImg(img) {
     ctx.drawImage(img, 0, 0);
 }
 
-function drawDinamicTxt(img) {
-    document.getElementById('memeText').addEventListener('keyup', function () {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawBgImg(img);
-        drawText(this.value);
-    });
+function onTxtChanged() {
+    let txt = document.getElementById('memeText').value;
+    console.log(txt);
+    gMeme.txts[0].line = txt;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBgImg(img);
+    drawText(txt);
+
 }
 
 function drawTextColor() {
@@ -48,4 +49,8 @@ function drawText(text) {
     let text_title = text;
     ctx.font = "50px 'Montserrat'";
     ctx.fillText(text_title, 50, 50);
+}
+
+function onChangeTxtSize(mode) {
+    drawMeme();
 }
