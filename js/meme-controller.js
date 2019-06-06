@@ -10,10 +10,13 @@ function renderGallery() {
 
     var strHtmls = imgs.map(img => {
         return `
-        <div><a href="editor.html" onclick="imgPicked(${img.id})"><img src="${img.url}"></a></div>
-        `
+        <section class="cards">
+            <article>
+            <a href="editor.html" onclick="imgPicked(${img.id})"><img src="${img.url}" class="article-img"></a>
+            </article>
+        </section>  `
     })
-    document.querySelector('.imgs-container').innerHTML = strHtmls.join('');
+    document.querySelector('.cards').innerHTML = strHtmls.join('');
 }
 
 function imgPicked(id) {
