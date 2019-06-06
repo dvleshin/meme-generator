@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body onload="onInitEditor()">
+
+    <header>
+    </header>
+    <main>
+        <div class="meme-canvas">
+            <canvas id="meme-area"></canvas>
+        </div>
+        <div class="control-box">
+            <input type="text" placeholder="input your text" id="memeText" value=""><button>X</button>
+            <div>
+                <input type="color" id="memeTextColor" value="#000000">
+                <button>+</button>
+                <button>-</button>
+                <select>
+                    <option value="Impact">Impact</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Serif">Serif</option>
+                </select>
+            </div>
+            <button>add line</button>
+            <button>Download</button>
+
+        </div>
+    </main>
+    <footer>
+    </footer>
+
+
+
+
+
+
+
+    <script src="js/meme-service.js"></script>
+    <script src="js/edit-controller.js"></script>
+    <script src="js/utils.js"></script>
+</body>
+
+</html>
