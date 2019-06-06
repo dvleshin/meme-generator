@@ -20,7 +20,7 @@
         <div class="control-box">
             <input type="text" onkeyup="onTxtChanged()" placeholder="input your text" id="memeText"><button>X</button>
             <div>
-                <input type="color" id="memeTextColor" value="#000000">
+                <input type="color" onchange="onChangeTxtColor(this.value)" id="memeTextColor" value="#000000">
                 <button onclick="onChangeTxtSize(1)">+</button>
                 <button onclick="onChangeTxtSize(-1)">-</button>
                 <select>

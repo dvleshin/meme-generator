@@ -35,14 +35,8 @@ function onTxtChanged() {
     updateCanvas();
 }
 
-function drawTextColor() {
-    document.getElementById('memeTextColor').addEventListener('onchange', function () {
-
-    });
-}
-
 function drawText(text) {
-    ctx.fillStyle = 'red';
+    ctx.fillStyle = `${gMeme.txts[0].color}`;
     let text_title = text;
 
     ctx.font = `${gMeme.txts[0].size}px 'Montserrat'`;
@@ -59,6 +53,12 @@ function changeTxtSize(mode) {
 
     updateCanvas();
 }
+
+function onChangeTxtColor(selectedColor) {
+    gMeme.txts[0].color = selectedColor;
+    updateCanvas();
+}
+
 
 function updateCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
