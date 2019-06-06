@@ -28,7 +28,7 @@ function setMeme(id) {
         selectedImgId: id,
         txts: [{
             line: '',
-            size: 0,
+            size: 50,
             align: '',
             color: ''
         }]

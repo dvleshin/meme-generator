@@ -29,28 +29,39 @@ function drawBgImg(img) {
 
 function onTxtChanged() {
     let txt = document.getElementById('memeText').value;
-    console.log(txt);
+
     gMeme.txts[0].line = txt;
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawBgImg(img);
-    drawText(txt);
-
+    updateCanvas();
 }
 
 function drawTextColor() {
     document.getElementById('memeTextColor').addEventListener('onchange', function () {
-        console.log('ok');
+
     });
 }
 
 function drawText(text) {
     ctx.fillStyle = 'red';
     let text_title = text;
-    ctx.font = "50px 'Montserrat'";
+
+    ctx.font = `${gMeme.txts[0].size}px 'Montserrat'`;
+
     ctx.fillText(text_title, 50, 50);
 }
 
 function onChangeTxtSize(mode) {
-    drawMeme();
+    changeTxtSize(mode);
+}
+
+function changeTxtSize(mode) {
+    gMeme.txts[0].size += mode;
+
+    updateCanvas();
+}
+
+function updateCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBgImg(img);
+    drawText(gMeme.txts[0].line);
 }
