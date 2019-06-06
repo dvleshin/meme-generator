@@ -76,3 +76,21 @@ function getMemeImgById(id) {
     })
     return meme;
 }
+
+function memesFilter(value) {
+    console.log(value);
+    let imgs = [];
+
+    gImgs.forEach(img => {
+        for (var i = 0; i < img.keywords.length; i++) {
+            if (value === img.keywords[i]) {
+                console.log(img.keywords[i]);
+                imgs.push(img);
+            }
+        }
+
+    });
+
+    console.log(imgs);
+    return imgs;
+}
