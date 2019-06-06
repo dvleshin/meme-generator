@@ -20,10 +20,10 @@
         <div class="control-box">
             <input type="text" onkeyup="onTxtChanged()" placeholder="input your text" id="memeText"><button>X</button>
             <div>
-                <input type="color" onchange="onChangeTxtColor(this.value)" id="memeTextColor" value="#000000">
+                <input type="color" onchange="onChangeTxtColor(this.value)" id="memeTextColor" value="#ffffff">
                 <button onclick="onChangeTxtSize(1)">+</button>
                 <button onclick="onChangeTxtSize(-1)">-</button>
-                <select>
+                <select onchange="onFontChanged(this.value)">
                     <option value="Impact">Impact</option>
                     <option value="Arial">Arial</option>
                     <option value="Serif">Serif</option>

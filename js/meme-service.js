@@ -62,7 +62,8 @@ function setMeme(id) {
             line: '',
             size: 50,
             align: '',
-            color: ''
+            color: 'white',
+            font: 'Impact'
         }]
     }
     saveToStorage(KEY, gMeme);

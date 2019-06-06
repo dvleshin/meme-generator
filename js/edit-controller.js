@@ -2,6 +2,7 @@
 let canvas;
 let ctx;
 let img = new Image();
+let currentTxtIdx = 0;
 
 function onInitEditor() {
     gMeme = loadFromStorage('userMeme');
@@ -30,16 +31,21 @@ function drawBgImg(img) {
 function onTxtChanged() {
     let txt = document.getElementById('memeText').value;
 
-    gMeme.txts[0].line = txt;
+    gMeme.txts[currentTxtIdx].line = txt;
 
     updateCanvas();
 }
 
 function drawText(text) {
-    ctx.fillStyle = `${gMeme.txts[0].color}`;
+    ctx.fillStyle = `${gMeme.txts[currentTxtIdx].color}`;
     let text_title = text;
 
-    ctx.font = `${gMeme.txts[0].size}px 'Montserrat'`;
+    ctx.font = `${gMeme.txts[currentTxtIdx].size}px '${gMeme.txts[currentTxtIdx].font}'`;
+    if (gMeme.txts[currentTxtIdx].font === 'Impact') {
+        ctx.strokeText(text, 50, 50);
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 8;
+    }
 
     ctx.fillText(text_title, 50, 50);
 }
@@ -49,19 +55,24 @@ function onChangeTxtSize(mode) {
 }
 
 function changeTxtSize(mode) {
-    gMeme.txts[0].size += mode;
+    gMeme.txts[currentTxtIdx].size += mode;
 
     updateCanvas();
 }
 
 function onChangeTxtColor(selectedColor) {
-    gMeme.txts[0].color = selectedColor;
+    gMeme.txts[currentTxtIdx].color = selectedColor;
     updateCanvas();
 }
 
+function onFontChanged(font) {
+    gMeme.txts[currentTxtIdx].font = font;
+
+    updateCanvas();
+}
 
 function updateCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBgImg(img);
-    drawText(gMeme.txts[0].line);
+    drawText(gMeme.txts[currentTxtIdx].line);
 }
