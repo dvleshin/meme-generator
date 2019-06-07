@@ -12,20 +12,22 @@
 <body onload="onInitMain()">
 
     <header>
-        <h1>
-            Meme Generator
-        </h1>
+        <h1>Meme Generator</h1>
+        <ul>
+            <li><a href="index.html">Gallery</a></li>
+            <li>About</li>
+            <li>Get in touch</li>
+        </ul>
     </header>
 
-    <main class="imgs">
-        <input type="text" onkeyup="onMemesFilter(this.value)" placeholder="filter by keywords" id="memesFilter">
-        <div class="imgs-container"></div>
-    </main>
-
     <main>
+        <section class="filter">
+            <input type="text" onkeyup="onMemesFilter(this.value)" placeholder="filter by keywords" id="memesFilter"
+                class="filter-input">
+        </section>
         <section class="memes-imgs"></section>
+        <section class="memes-tags"></section>
     </main>
-
     <footer>
     </footer>
 

@@ -8,12 +8,11 @@ function onInitMain() {
 
 function renderGallery(imgs) {
 
-
     var strHtmls = imgs.map(img => {
         return `
-            <article>
-            <a href="editor.html" onclick="imgPicked(${img.id})"><img src="${img.url}" class="article-img"></a>
-            </article>
+            <meme>
+            <a href="editor.html" onclick="imgPicked(${img.id})"><img src="${img.url}" class="meme-img"></a>
+            </meme>
             `
     })
     document.querySelector('.memes-imgs').innerHTML = strHtmls.join('');
@@ -25,6 +24,6 @@ function imgPicked(id) {
 }
 
 function onMemesFilter(value) {
-    let imgs = memesFilter(value);
+    let imgs = getMemesFiltered(value);
     renderGallery(imgs)
 }

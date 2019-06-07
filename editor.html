@@ -12,6 +12,12 @@
 <body onload="onInitEditor()">
 
     <header>
+        <h1>Meme Generator</h1>
+        <ul>
+            <li><a href="index.html">Gallery</a></li>
+            <li>About</li>
+            <li>Get in touch</li>
+        </ul>
     </header>
     <main class="meme-editor">
         <div class="meme-canvas">
@@ -36,7 +42,7 @@
                 </select>
             </div>
             <button onclick="onNextTxt()">next line</button>
-            <button>Download</button>
+            <a href="#" onclick="downloadImg(this)"><span>Download</span></a>
 
         </div>
     </main>
