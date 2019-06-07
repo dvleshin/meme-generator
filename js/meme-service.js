@@ -77,20 +77,13 @@ function getMemeImgById(id) {
     return meme;
 }
 
-function memesFilter(value) {
-    console.log(value);
-    let imgs = [];
+function getMemesFiltered(value) {
+    if (!value) return gImgs;
 
-    gImgs.forEach(img => {
-        for (var i = 0; i < img.keywords.length; i++) {
-            if (value === img.keywords[i]) {
-                console.log(img.keywords[i]);
-                imgs.push(img);
-            }
-        }
-
-    });
-
-    console.log(imgs);
-    return imgs;
+    var regex = new RegExp(` ${value}`, 'i');
+    var filteredImgs = gImgs.filter(img => {
+        let keywordsStr = ' ' + img.keywords.join(' ') // space for serching every keyword (You can use any char)
+        return regex.exec(keywordsStr);
+    })
+    return filteredImgs;
 }

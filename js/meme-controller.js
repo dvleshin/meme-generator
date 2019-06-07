@@ -25,6 +25,6 @@ function imgPicked(id) {
 }
 
 function onMemesFilter(value) {
-    let imgs = memesFilter(value);
+    let imgs = getMemesFiltered(value);
     renderGallery(imgs)
 }
