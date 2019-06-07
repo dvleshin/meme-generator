@@ -90,3 +90,9 @@ function updateCanvas() {
     // drawText(gMeme.txts[gCurrentTxtIdx].line);
     drawText();
 }
+
+function downloadImg(elLink) {
+    const data = gCanvas.toDataURL();
+    elLink.href = data
+    elLink.download = 'my-meme.jpg';
+}

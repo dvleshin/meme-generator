@@ -97,7 +97,7 @@ function getMemesFiltered(value) {
 
     var regex = new RegExp(` ${value}`, 'i');
     var filteredImgs = gImgs.filter(img => {
-        let keywordsStr = ' ' + img.keywords.join(' ') // space for serching every keyword (You can use any char)
+        let keywordsStr = ' ' + img.keywords.join(' ') // space for serching every keyword (You can use any char by changing regex)
         return regex.exec(keywordsStr);
     })
     return filteredImgs;
