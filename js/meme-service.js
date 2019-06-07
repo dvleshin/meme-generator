@@ -59,12 +59,27 @@ function setMeme(id) {
     gMeme = {
         selectedImgId: id,
         txts: [{
-            line: '',
-            size: 50,
-            align: '',
-            color: 'white',
-            font: 'Impact'
-        }]
+                line: '',
+                size: 50,
+                align: '',
+                color: 'white',
+                font: 'Impact'
+            },
+            {
+                line: '',
+                size: 50,
+                align: '',
+                color: 'white',
+                font: 'Impact'
+            },
+            {
+                line: '',
+                size: 50,
+                align: '',
+                color: 'white',
+                font: 'Impact'
+            }
+        ]
     }
     saveToStorage(KEY, gMeme);
 }
