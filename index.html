@@ -13,17 +13,18 @@
 
     <header>
         <h1>Meme Generator</h1>
+        <ul>
+            <li>Gallery</li>
+            <li>About</li>
+            <li>Get in touch</li>
+        </ul>
     </header>
 
-    <main class="imgs">
-        <input type="text" onkeyup="onMemesFilter(this.value)" placeholder="filter by keywords" id="memesFilter">
-        <div class="imgs-container"></div>
-    </main>
-
     <main>
+        <input type="text" onkeyup="onMemesFilter(this.value)" placeholder="filter by keywords" id="memesFilter">
         <section class="memes-imgs"></section>
+        <section class="memes-tags"></section>
     </main>
-
     <footer>
     </footer>
 
