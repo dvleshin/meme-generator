@@ -1,4 +1,4 @@
-/* Fonts */
+/* Fonts -------------------------------------------------------*/
 
 @font-face {
     font-family: Impact;
@@ -22,13 +22,36 @@ header {
 /* Generic styles ----------------------------------------------*/
 body {
     font-family: 'Quicksand', sans-serif;
+    margin: 0;
 }
 
 header {
+    display: flex;
+    justify-content: space-between;
     padding: 10px;
-    font-size: 2em;
+    font-size: 1em;
     color: white;
     background-color: #333;
+    margin-bottom: 10px;
+}
+
+header ul {
+    display: flex;
+    list-style-type: none;
+}
+
+header ul>li {
+    margin-left: 10px;
+}
+
+.filter-input {
+    border: 1px solid #333;
+    border-radius: 5px;
+    height: 40px;
+    width: 150px;
+    margin: 15px auto;
+    padding-left: 10px;
+    outline-width: 0;
 }
 
 @media (min-width: 700px) {}
@@ -36,6 +59,19 @@ header {
 .memes-imgs {
     max-width: 960px;
     margin: 0 auto 30px;
+}
+
+header {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.filter,
+.memes-tags {
+    display: flex;
+    justify-content: center;
+    max-width: 960px;
+    margin: 0 auto;
 }
 
 meme {

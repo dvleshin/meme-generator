@@ -14,14 +14,17 @@
     <header>
         <h1>Meme Generator</h1>
         <ul>
-            <li>Gallery</li>
+            <li><a href="index.html">Gallery</a></li>
             <li>About</li>
             <li>Get in touch</li>
         </ul>
     </header>
 
     <main>
-        <input type="text" onkeyup="onMemesFilter(this.value)" placeholder="filter by keywords" id="memesFilter">
+        <section class="filter">
+            <input type="text" onkeyup="onMemesFilter(this.value)" placeholder="filter by keywords" id="memesFilter"
+                class="filter-input">
+        </section>
         <section class="memes-imgs"></section>
         <section class="memes-tags"></section>
     </main>
