@@ -61,23 +61,29 @@ function setMeme(id) {
         txts: [{
                 line: '',
                 size: 50,
-                align: '',
+                align: 'left',
                 color: '#ffffff',
-                font: 'Impact'
+                font: 'Impact',
+                xPos: 0,
+                yPos: 0
             },
             {
                 line: '',
                 size: 50,
-                align: '',
+                align: 'left',
                 color: '#ffffff',
-                font: 'Impact'
+                font: 'Impact',
+                xPos: 0,
+                yPos: 0
             },
             {
                 line: '',
                 size: 50,
-                align: '',
+                align: 'left',
                 color: '#ffffff',
-                font: 'Impact'
+                font: 'Impact',
+                xPos: 0,
+                yPos: 0
             }
         ]
     }

@@ -19,6 +19,14 @@ function drawMeme() {
     gCanvas.width = gImg.width;
     gCanvas.height = gImg.height;
 
+    let starterXPos = 50;
+    gMeme.txts[0].xPos = starterXPos;
+    gMeme.txts[0].yPos = starterXPos;
+    gMeme.txts[1].xPos = starterXPos;
+    gMeme.txts[1].yPos = gCanvas.height - 20;
+    gMeme.txts[2].xPos = starterXPos;
+    gMeme.txts[2].yPos = (gCanvas.height / 2) + 15;
+
     gImg.onload = () => {
         drawBgImg(gImg);
     };
@@ -37,20 +45,16 @@ function onTxtChanged() {
 }
 
 function drawText() {
-
     gMeme.txts.forEach((txt, idx) => {
         if (txt.line !== '') {
             gCtx.fillStyle = txt.color;
             gCtx.font = `${txt.size}px '${txt.font}'`;
-
-            let canvasX = 50;
-            let canvasY = idx === 0 ? canvasX : idx === 1 ? gCanvas.height - 20 : (gCanvas.height / 2) + 15;
-            gCtx.fillText(txt.line, canvasX, canvasY);
+            gCtx.fillText(txt.line, txt.xPos, txt.yPos);
 
             if (txt.font === 'Impact') {
                 gCtx.strokeStyle = 'black';
                 gCtx.lineWidth = 3;
-                gCtx.strokeText(txt.line, canvasX, canvasY);
+                gCtx.strokeText(txt.line, txt.xPos, txt.yPos);
             }
         }
     });
@@ -91,10 +95,15 @@ function renderCtrlsVals() {
     document.querySelector('select').value = gMeme.txts[gCurrentTxtIdx].font;
 }
 
+function onTxtToggleUpDown(mode) {
+    gMeme.txts[gCurrentTxtIdx].yPos += mode;
+
+    updateCanvas();
+}
+
 function updateCanvas() {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
     drawBgImg(gImg);
-    // drawText(gMeme.txts[gCurrentTxtIdx].line);
     drawText();
 }
 
