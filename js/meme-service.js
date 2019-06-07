@@ -62,21 +62,21 @@ function setMeme(id) {
                 line: '',
                 size: 50,
                 align: '',
-                color: 'white',
+                color: '#ffffff',
                 font: 'Impact'
             },
             {
                 line: '',
                 size: 50,
                 align: '',
-                color: 'white',
+                color: '#ffffff',
                 font: 'Impact'
             },
             {
                 line: '',
                 size: 50,
                 align: '',
-                color: 'white',
+                color: '#ffffff',
                 font: 'Impact'
             }
         ]

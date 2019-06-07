@@ -80,8 +80,15 @@ function onFontChanged(font) {
 function onNextTxt() {
     if (gMeme.txts[gCurrentTxtIdx + 1]) gCurrentTxtIdx++;
     else gCurrentTxtIdx = 0;
+    renderCtrlsVals();
     console.log(gCurrentTxtIdx);
 
+}
+
+function renderCtrlsVals() {
+    document.querySelector('#memeText').value = gMeme.txts[gCurrentTxtIdx].line;
+    document.querySelector('#memeTextColor').value = gMeme.txts[gCurrentTxtIdx].color;
+    document.querySelector('select').value = gMeme.txts[gCurrentTxtIdx].font;
 }
 
 function updateCanvas() {
