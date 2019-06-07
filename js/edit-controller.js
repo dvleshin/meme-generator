@@ -101,6 +101,12 @@ function onTxtToggleUpDown(mode) {
     updateCanvas();
 }
 
+function onTxtToggleLeftRight(mode) {
+    gMeme.txts[gCurrentTxtIdx].xPos += mode;
+
+    updateCanvas();
+}
+
 function updateCanvas() {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
     drawBgImg(gImg);
