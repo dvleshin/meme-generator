@@ -22,12 +22,12 @@ function drawMeme() {
     gImg.src = imgUrl;
 
 
-    // calculation of acpect ratio for resizing display
+    // calculation of acpect ratio for image resizing
     let acpectRatio = gImg.width / gImg.height;
     console.log(acpectRatio);
 
     if (window.innerWidth < 620) {
-        gCanvas.width = window.innerWidth - 30;
+        gCanvas.width = window.innerWidth - 10;
         gImg.height = gCanvas.width / acpectRatio;
         gCanvas.height = gImg.height;
     } else {
