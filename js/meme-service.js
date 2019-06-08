@@ -61,7 +61,7 @@ function setMeme(id) {
         txts: [{
                 line: '',
                 size: 50,
-                align: 'left',
+                align: 'center',
                 color: '#ffffff',
                 font: 'Impact',
                 xPos: 0,
@@ -70,7 +70,7 @@ function setMeme(id) {
             {
                 line: '',
                 size: 50,
-                align: 'left',
+                align: 'center',
                 color: '#ffffff',
                 font: 'Impact',
                 xPos: 0,
@@ -79,7 +79,7 @@ function setMeme(id) {
             {
                 line: '',
                 size: 50,
-                align: 'left',
+                align: 'center',
                 color: '#ffffff',
                 font: 'Impact',
                 xPos: 0,
@@ -107,4 +107,9 @@ function getMemesFiltered(value) {
         return regex.exec(keywordsStr);
     })
     return filteredImgs;
+}
+
+function setRdnMeme() {
+    let rndNumId = getRandomInt(1, gImgs.length);
+    setMeme(rndNumId);
 }

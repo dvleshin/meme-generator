@@ -5,7 +5,11 @@ let gImg = new Image();
 let gCurrentTxtIdx = 0;
 
 function onInitEditor() {
-    gMeme = loadFromStorage('userMeme');
+    gMeme = loadFromStorage(KEY);
+    if (!gMeme) {
+        setRdnMeme();
+        gMeme = loadFromStorage(KEY);
+    }
     gCanvas = document.getElementById('meme-area');
     gCtx = gCanvas.getContext('2d');
     drawMeme();
@@ -19,9 +23,11 @@ function drawMeme() {
     gCanvas.width = gImg.width;
     gCanvas.height = gImg.height;
 
-    let starterXPos = 50;
+    let starterYPos = 50;
+    let starterXPos = gCanvas.width / 2
+
     gMeme.txts[0].xPos = starterXPos;
-    gMeme.txts[0].yPos = starterXPos;
+    gMeme.txts[0].yPos = starterYPos;
     gMeme.txts[1].xPos = starterXPos;
     gMeme.txts[1].yPos = gCanvas.height - 20;
     gMeme.txts[2].xPos = starterXPos;
@@ -38,7 +44,6 @@ function drawBgImg(img) {
 
 function onTxtChanged() {
     let txt = document.getElementById('memeText').value;
-
     gMeme.txts[gCurrentTxtIdx].line = txt;
 
     updateCanvas();
@@ -49,6 +54,7 @@ function drawText() {
         if (txt.line !== '') {
             gCtx.fillStyle = txt.color;
             gCtx.font = `${txt.size}px '${txt.font}'`;
+            gCtx.textAlign = txt.align;
             gCtx.fillText(txt.line, txt.xPos, txt.yPos);
 
             if (txt.font === 'Impact') {
@@ -117,4 +123,19 @@ function downloadImg(elLink) {
     const data = gCanvas.toDataURL();
     elLink.href = data
     elLink.download = 'my-meme.jpg';
+}
+
+function onAlignTxt(mode) {
+
+    if (mode === 'left') {
+        gMeme.txts[gCurrentTxtIdx].align = 'left'
+        gMeme.txts[gCurrentTxtIdx].xPos = 10;
+    } else if (mode === 'right') {
+        gMeme.txts[gCurrentTxtIdx].align = 'right'
+        gMeme.txts[gCurrentTxtIdx].xPos = gCanvas.width - 10;
+    } else if (mode === 'center') {
+        gMeme.txts[gCurrentTxtIdx].align = 'center'
+        gMeme.txts[gCurrentTxtIdx].xPos = gCanvas.width / 2;
+    }
+    updateCanvas();
 }
