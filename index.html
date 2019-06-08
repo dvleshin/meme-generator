@@ -13,12 +13,12 @@
 <body onload="onInitMain()">
 
     <header>
-        <section class="main-navbar">
+        <section class="main-navbar flex">
             <a href="/" class="logo">
                 <h1>Meme Generator</h1>
             </a>
             <nav class="main-nav">
-                <ul class="main-nav-list">
+                <ul class="main-nav-list flex">
                     <li><a href="/index.html">Gallery</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Get in touch</a></li>
@@ -29,7 +29,7 @@
     </header>
 
     <main>
-        <section class="filter">
+        <section class="filter flex">
             <div class="search-container">
                 <i class="fa fa-search search-icon"></i>
                 <input type="text" onkeyup="onMemesFilter(this.value)" placeholder="Search..." id="memesFilter"
@@ -37,7 +37,7 @@
             </div>
         </section>
         <section class="memes-imgs"></section>
-        <section class="memes-tags"></section>
+        <section class="memes-tags flex"></section>
     </main>
     <footer>
         Meme Generator © 2019
