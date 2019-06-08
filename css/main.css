@@ -138,7 +138,7 @@ header {
     margin: 0 auto;
 }
 
-meme {
+.meme {
     position: relative;
 }
 
@@ -177,6 +177,20 @@ meme {
     outline: 0;
 }
 
+.meme-editor button {
+    width: 82px;
+    height: 30px;
+}
+
+.meme-editor button:not(.next-line-btn) {
+    margin-left: 15px;
+}
+
+.next-line-btn {
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
 /* Footer box ----------------------------------------------*/
 footer {
     display: flex;
@@ -186,6 +200,15 @@ footer {
     padding: 20px 0;
     background: #000;
     border-top: 2px solid #ccc;
+}
+
+/* Footer .editor-footer special treat ----------------------------------------------*/
+
+.editor-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 /* Media ----------------------------------------------*/
