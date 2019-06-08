@@ -20,8 +20,17 @@ function drawMeme() {
     let memeObj = getMemeImgById(gMeme.selectedImgId);
     let imgUrl = memeObj.url;
     gImg.src = imgUrl;
-    gCanvas.width = gImg.width;
-    gCanvas.height = gImg.height;
+    console.log(gImg.width, gImg.height, window.innerWidth, window.innerHeight);
+
+    if (window.innerWidth < 620) {
+        gCanvas.width = window.innerWidth - 50;
+        gCanvas.height = gImg.height;
+
+    } else {
+        gCanvas.width = gImg.width;
+        gCanvas.height = gImg.height;
+    }
+
 
     let starterYPos = 50;
     let starterXPos = gCanvas.width / 2
@@ -71,13 +80,14 @@ function onChangeTxtSize(mode) {
 }
 
 function onFontSizeChange(value) {
-    gMeme.txts[gCurrentTxtIdx].size = value;
+    gMeme.txts[gCurrentTxtIdx].size = +value;
+    console.log(gMeme.txts[gCurrentTxtIdx]);
     updateCanvas();
 }
 
 function changeTxtSize(mode) {
     gMeme.txts[gCurrentTxtIdx].size += mode;
-
+    console.log(gMeme.txts[gCurrentTxtIdx]);
     updateCanvas();
 }
 
@@ -88,7 +98,6 @@ function onChangeTxtColor(selectedColor) {
 
 function onFontChanged(font) {
     gMeme.txts[gCurrentTxtIdx].font = font;
-
     updateCanvas();
 }
 
