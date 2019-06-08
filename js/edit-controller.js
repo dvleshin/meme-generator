@@ -20,8 +20,27 @@ function drawMeme() {
     let memeObj = getMemeImgById(gMeme.selectedImgId);
     let imgUrl = memeObj.url;
     gImg.src = imgUrl;
-    gCanvas.width = gImg.width;
-    gCanvas.height = gImg.height;
+
+
+    // calculation of acpect ratio for resizing display
+    let acpectRatio = gImg.width / gImg.height;
+    console.log(acpectRatio);
+
+    if (window.innerWidth < 620) {
+        gCanvas.width = window.innerWidth - 30;
+        gImg.height = gCanvas.width / acpectRatio;
+        gCanvas.height = gImg.height;
+    } else {
+        if (gImg.width > 500 || gImg.width < 400) {
+            gImg.width = 500;
+            gImg.height = gImg.width / acpectRatio;
+            gCanvas.width = gImg.width;
+            gCanvas.height = gImg.height;
+        }
+        gCanvas.width = gImg.width;
+        gCanvas.height = gImg.height;
+    }
+
 
     let starterYPos = 50;
     let starterXPos = gCanvas.width / 2
@@ -39,7 +58,7 @@ function drawMeme() {
 }
 
 function drawBgImg(img) {
-    gCtx.drawImage(img, 0, 0);
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
 }
 
 function onTxtChanged() {
@@ -70,9 +89,15 @@ function onChangeTxtSize(mode) {
     changeTxtSize(mode);
 }
 
+function onFontSizeChange(value) {
+    gMeme.txts[gCurrentTxtIdx].size = +value;
+    console.log(gMeme.txts[gCurrentTxtIdx]);
+    updateCanvas();
+}
+
 function changeTxtSize(mode) {
     gMeme.txts[gCurrentTxtIdx].size += mode;
-
+    console.log(gMeme.txts[gCurrentTxtIdx]);
     updateCanvas();
 }
 
@@ -83,7 +108,6 @@ function onChangeTxtColor(selectedColor) {
 
 function onFontChanged(font) {
     gMeme.txts[gCurrentTxtIdx].font = font;
-
     updateCanvas();
 }
 
@@ -103,12 +127,6 @@ function renderCtrlsVals() {
 
 function onTxtToggleUpDown(mode) {
     gMeme.txts[gCurrentTxtIdx].yPos += mode;
-
-    updateCanvas();
-}
-
-function onTxtToggleLeftRight(mode) {
-    gMeme.txts[gCurrentTxtIdx].xPos += mode;
 
     updateCanvas();
 }

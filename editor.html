@@ -31,13 +31,17 @@
         </div>
         <div class="control-box flex">
             <input type="text" onkeyup="onTxtChanged()" placeholder="input your text" id="memeText" class="text-input">
-            <input type="color" onchange="onChangeTxtColor(this.value)" id="memeTextColor" value="#ffffff"
-                class="color-input">
             <div>
+                <input type="color" onchange="onChangeTxtColor(this.value)" id="memeTextColor" value="#ffffff"
+                    class="color-input">
+                <input type="text" onkeyup="onFontSizeChange(this.value)" placeholder="font size" id="fontSize">
                 <button onclick="onChangeTxtSize(1)">+</button>
                 <button onclick="onChangeTxtSize(-1)">-</button>
-                <button onclick="onTxtToggleUpDown(-1)">text ▲</button>
-                <button onclick="onTxtToggleUpDown(1)">text ▼</button>
+                <button onclick="onTxtToggleUpDown(-1)">text up</button>
+                <button onclick="onTxtToggleUpDown(1)">text down</button>
+                <span onclick="onAlignTxt('left')" class="align"><i class="fas fa-align-left"></i></span>
+                <span onclick="onAlignTxt('center')" class="align"><i class="fas fa-align-center"></i></span>
+                <span onclick="onAlignTxt('right')" class="align"><i class="fas fa-align-right"></i></span>
             </div>
             <div>
                 <button class="next-line-btn" onclick="onNextTxt()">next line</button>

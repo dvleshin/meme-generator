@@ -207,6 +207,7 @@ header {
     margin-top: 15px;
 }
 
+
 /* Footer box ----------------------------------------------*/
 footer {
     display: flex;
@@ -303,5 +304,10 @@ footer {
         background-color: #4f4e4e;
         padding-top: 45px;
         height: 60px;
+    }
+
+    .meme-editor {
+        position: absolute;
+        top: 70px;
     }
 }
