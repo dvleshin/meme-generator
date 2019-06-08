@@ -16,23 +16,21 @@ header {
 .memes-imgs {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 30px;
+    grid-gap: 20px;
 }
 
 /* Generic styles ----------------------------------------------*/
 body {
     font-family: 'Quicksand', sans-serif;
     margin: 0;
+    background-color: #f6f6f6;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    font-size: 1em;
     color: white;
-    background-color: #333;
+    background-color: #0b57a9;
     margin-bottom: 10px;
+    border-bottom: 2px solid #ccc;
 }
 
 header ul {
@@ -44,28 +42,52 @@ header ul>li {
     margin-left: 10px;
 }
 
-.filter-input {
-    border: 1px solid #333;
+.search-container {
+    display: grid;
+    grid-template-columns: 1.5rem 4fr 1fr;
+    width: 300px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    height: 40px;
-    width: 150px;
-    margin: 15px auto;
-    padding-left: 10px;
-    outline-width: 0;
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-@media (min-width: 700px) {}
+.search-container:focus-within i {
+    display: none;
+}
+
+.search-container:focus-within .search-box {
+    grid-column: 1/4;
+}
+
+.search-container:focus-within .search-box::placeholder {
+    color: transparent;
+}
+
+.search-icon {
+    padding: 0.5rem;
+    grid-row: 1;
+    grid-column: 1/2;
+    z-index: 2;
+    background-color: #fff;
+}
+
+.search-box {
+    border: 0;
+    padding: 0.6rem;
+    grid-column: 2/4;
+    grid-row: 1;
+    outline: none;
+}
 
 .memes-imgs {
     max-width: 960px;
     margin: 0 auto 30px;
 }
 
-header {
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
+.nav,
 .filter,
 .memes-tags {
     display: flex;
@@ -91,3 +113,15 @@ meme {
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.2);
 }
+
+footer {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    height: 50px;
+    padding: 20px 0;
+    background: #000;
+    border-top: 2px solid #ccc;
+}
+
+@media (min-width: 700px) {}
