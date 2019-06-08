@@ -70,6 +70,11 @@ function onChangeTxtSize(mode) {
     changeTxtSize(mode);
 }
 
+function onFontSizeChange(value) {
+    gMeme.txts[gCurrentTxtIdx].size = value;
+    updateCanvas();
+}
+
 function changeTxtSize(mode) {
     gMeme.txts[gCurrentTxtIdx].size += mode;
 
@@ -103,12 +108,6 @@ function renderCtrlsVals() {
 
 function onTxtToggleUpDown(mode) {
     gMeme.txts[gCurrentTxtIdx].yPos += mode;
-
-    updateCanvas();
-}
-
-function onTxtToggleLeftRight(mode) {
-    gMeme.txts[gCurrentTxtIdx].xPos += mode;
 
     updateCanvas();
 }
