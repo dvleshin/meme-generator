@@ -20,13 +20,23 @@ function drawMeme() {
     let memeObj = getMemeImgById(gMeme.selectedImgId);
     let imgUrl = memeObj.url;
     gImg.src = imgUrl;
-    console.log(gImg.width, gImg.height, window.innerWidth, window.innerHeight);
+
+
+    // calculation of acpect ratio for resizing display
+    let acpectRatio = gImg.width / gImg.height;
+    console.log(acpectRatio);
 
     if (window.innerWidth < 620) {
-        gCanvas.width = window.innerWidth - 50;
+        gCanvas.width = window.innerWidth - 30;
+        gImg.height = gCanvas.width / acpectRatio;
         gCanvas.height = gImg.height;
-
     } else {
+        if (gImg.width > 500 || gImg.width < 400) {
+            gImg.width = 500;
+            gImg.height = gImg.width / acpectRatio;
+            gCanvas.width = gImg.width;
+            gCanvas.height = gImg.height;
+        }
         gCanvas.width = gImg.width;
         gCanvas.height = gImg.height;
     }
@@ -48,7 +58,7 @@ function drawMeme() {
 }
 
 function drawBgImg(img) {
-    gCtx.drawImage(img, 0, 0);
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
 }
 
 function onTxtChanged() {
