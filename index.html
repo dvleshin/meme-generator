@@ -13,14 +13,19 @@
 <body onload="onInitMain()">
 
     <header>
-        <div class="nav">
-            <h1>Meme Generator</h1>
-            <ul>
-                <li><a href="index.html">Gallery</a></li>
-                <li>About</li>
-                <li>Get in touch</li>
-            </ul>
-        </div>
+        <section class="main-navbar">
+            <a href="/" class="logo">
+                <h1>Meme Generator</h1>
+            </a>
+            <nav class="main-nav">
+                <ul class="main-nav-list">
+                    <li><a href="/index.html">Gallery</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Get in touch</a></li>
+                </ul>
+            </nav>
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        </section>
     </header>
 
     <main>
@@ -37,7 +42,6 @@
     <footer>
         Meme Generator © 2019
     </footer>
-
     <script src="js/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>
     <script src="js/utils.js"></script>
