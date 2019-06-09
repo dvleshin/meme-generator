@@ -26,12 +26,12 @@ function drawMeme() {
     let acpectRatio = gImg.width / gImg.height;
 
     if (window.innerWidth < 620) {
-        gCanvas.width = window.innerWidth - 10;
+        gCanvas.width = window.innerWidth - 20;
         gImg.height = gCanvas.width / acpectRatio;
         gCanvas.height = gImg.height;
     } else {
-        if (gImg.width > 500 || gImg.width < 400) {
-            gImg.width = 500;
+        if (gImg.width > 600 || gImg.width < 400) {
+            gImg.width = 600;
             gImg.height = gImg.width / acpectRatio;
             gCanvas.width = gImg.width;
             gCanvas.height = gImg.height;
