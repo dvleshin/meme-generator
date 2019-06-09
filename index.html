@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Meme Generator</title>
     <link rel="stylesheet" href="lib/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="lib/animate.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -18,9 +19,9 @@
             </a>
             <nav class="main-nav">
                 <ul class="main-nav-list flex">
-                    <li><a href="/index.html">Gallery</a></li>
+                    <li><a href="index.html">Gallery</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="#">Get in touch</a></li>
+                    <li><a href="#" onclick="openContact()">Get in touch</a></li>
                 </ul>
             </nav>
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
@@ -45,6 +46,14 @@
         <section class="memes-imgs"></section>
         <section class="memes-tags flex"></section>
     </main>
+    <section class="email animated fadeOutDown hide">
+        <div class="email-form">
+            <input type="email" id="user-form-subject" placeholder="Type subject here">
+            <textarea id="user-form-message" rows="3" placeholder="Type your message here"></textarea>
+            <button type="button" class="btn btn-primary btn-lg" onclick="sendEmail()">Send</button>
+        </div>
+        <div class="close-email-form" onclick="closeContact()">X</div>
+    </section>
     <footer>
         Meme Generator © 2019
     </footer>

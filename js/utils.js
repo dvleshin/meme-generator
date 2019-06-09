@@ -24,3 +24,28 @@ function toggleMenu() {
         document.querySelector('.menu-btn').innerHTML = '☰'
     }
 }
+
+function openContact() {
+    document.querySelector('.email').classList.remove('fadeOutDown')
+    document.querySelector('.email').classList.remove('hide')
+    document.querySelector('.email').classList.add('fadeInUp')
+}
+
+function closeContact() {
+    document.querySelector('.email').classList.remove('fadeInUp')
+    document.querySelector('.email').classList.add('fadeOutDown')
+}
+
+function sendEmail() {
+    var userFormSubject = document.getElementById('user-form-subject').value
+    var userFormMessage = document.getElementById('user-form-message').value
+    var url = `https://mail.google.com/mail/?view=cm&fs=1&to=support@domain.com&su=${userFormSubject}&body=${userFormMessage}`;
+
+    var win = window.open(url, '_blank');
+    win.focus();
+
+    document.getElementById('user-form-email').value = '';
+    document.getElementById('user-form-subject').value = '';
+    document.getElementById('user-form-message').value = '';
+
+}
