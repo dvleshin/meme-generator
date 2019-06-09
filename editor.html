@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Meme Generator</title>
+    <link rel="stylesheet" href="lib/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -25,45 +26,50 @@
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
         </section>
     </header>
-    <main class="meme-editor">
-        <div class="meme-canvas">
-            <canvas id="meme-area"></canvas>
-        </div>
-        <div class="control-box flex">
-            <input type="text" onkeyup="onTxtChanged()" placeholder="input your text" id="memeText" class="text-input">
-            <div><input type="color" onchange="onChangeTxtColor(this.value)" id="memeTextColor" value="#ffffff"
-                    class="color-input">
-                <input type="text" onkeyup="onFontSizeChange(this.value)" placeholder="font size" id="fontSize"></div>
-            <div>
-                <button onclick="onChangeTxtSize(1)">+</button>
-                <button onclick="onChangeTxtSize(-1)">-</button>
-                <button onclick="onTxtToggleUpDown(-1)">text ▲</button>
-                <button onclick="onTxtToggleUpDown(1)">text ▼</button>
-                <span onclick="onAlignTxt('left')" class="align"><i class="fas fa-align-left"></i></span>
-                <span onclick="onAlignTxt('center')" class="align"><i class="fas fa-align-center"></i></span>
-                <span onclick="onAlignTxt('right')" class="align"><i class="fas fa-align-right"></i></span>
+    <main>
+        <section class="meme-editor flex">
+            <div class="meme-canvas">
+                <canvas id="meme-area"></canvas>
             </div>
-            <div>
-                <button class="next-line-btn" onclick="onNextTxt()">next line</button>
-                <button onclick="onAlignTxt('left')">left</button>
-                <button onclick="onAlignTxt('center')">center</button>
-                <button onclick="onAlignTxt('right')">right</button>
-            </div>
-            <select onchange="onFontChanged(this.value)">
-                <option value="Impact">Impact</option>
-                <option value="Zapfino">Zapfino</option>
-                <option value="SignPainter">SignPainter</option>
-                <option value="Herculanum">Herculanum</option>
-                <option value="Bradley Hand">Bradley Hand</option>
-                <option value="American Typewriter">American Typewriter</option>
-                <option value="Serif">Serif</option>
-                <option value="Arial">Arial</option>
-            </select>
-            <a href="#" onclick="downloadImg(this)"><span>Download</span></a>
+            <div class="control-box flex">
+                <div class="controllers grid">
+                    <input class="text-input grid-row" type="text" onkeyup="onTxtChanged()"
+                        placeholder="input your text" id="memeText">
+                    <input class="color-input" type="color" onchange="onChangeTxtColor(this.value)" id="memeTextColor"
+                        value="#000">
+                    <input class="font-size-input" type="text" onkeyup="onFontSizeChange(this.value)"
+                        placeholder="font size" id="fontSize">
+                    <button class="big-size-btn" onclick="onChangeTxtSize(1)">+</button>
+                    <button class="small-size-btn" onclick="onChangeTxtSize(-1)">-</button>
+                    <button class="textUp-btn" onclick="onTxtToggleUpDown(-1)">▲</button>
+                    <button class="textDown-btn" onclick="onTxtToggleUpDown(1)">▼</button>
+                    <span class="aligh-btn" onclick="onAlignTxt('left')" class="align"><i
+                            class="fas fa-align-left"></i></span>
+                    <span class="aligh-btn" onclick="onAlignTxt('center')" class="align"><i
+                            class="fas fa-align-center"></i></span>
+                    <span class="aligh-btn" onclick="onAlignTxt('right')" class="align"><i
+                            class="fas fa-align-right"></i></span>
+                    <button class="next-line-btn grid-row" onclick="onNextTxt()">next text line</button>
+                    <select class="text-font-select grid-row" onchange="onFontChanged(this.value)">
+                        <option value="Impact">Impact</option>
+                        <option value="Zapfino">Zapfino</option>
+                        <option value="SignPainter">SignPainter</option>
+                        <option value="Herculanum">Herculanum</option>
+                        <option value="Bradley Hand">Bradley Hand</option>
+                        <option value="American Typewriter">American Typewriter</option>
+                        <option value="Serif">Serif</option>
+                        <option value="Arial">Arial</option>
+                    </select>
+                </div>
 
-        </div>
+                <a href="#" onclick="downloadImg(this)" class="download-img"><i
+                        class="fas fa-download icon"></i><span>Download</span></a>
+
+            </div>
+        </section>
+
     </main>
-    <footer class="editor-footer">
+    <footer>
         Meme Generator © 2019
     </footer>
     <script src="js/meme-service.js"></script>
