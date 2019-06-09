@@ -3,6 +3,7 @@
 function onInitMain() {
     let imgs = getImgs();
     renderGallery(imgs)
+    createKeywordToCntMap();
     renderKeywordsValues();
 }
 
