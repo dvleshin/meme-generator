@@ -20,7 +20,7 @@
             <nav class="main-nav">
                 <ul class="main-nav-list flex">
                     <li><a href="index.html">Gallery</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a onclick="openAboutModal()">About</a></li>
                     <li><a href="#" onclick="openContact()">Get in touch</a></li>
                 </ul>
             </nav>
@@ -57,6 +57,28 @@
     <footer>
         Meme Generator © 2019
     </footer>
+
+    <div class="modal">
+        <div class="overlay"></div>
+        <div class="modal_content">
+            <!-- Dynamic Section -->
+            <h2>About the app</h2>
+            <p style="text-align: center;">
+                The Meme Generator app is the place where you can select a picture from the gallery
+                and than add some text with different fonts and sizes and colors, and place it in the picture.
+            </p>
+            <p>You can move the text and place it wherever you want on the picture.
+                You can add up to 3 text line per picture.
+            </p>
+            <p>After you finish editing the text on the picture you can download it with the text.
+                It will be saved on your computer.</p>
+            <!-- End of Dynamic Section -->
+            <button onclick="closeModal()" title="Close" class="close_modal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
     <script src="js/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>
     <script src="js/utils.js"></script>
