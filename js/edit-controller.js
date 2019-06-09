@@ -13,6 +13,10 @@ function onInitEditor() {
     gCanvas = document.getElementById('meme-area');
     gCtx = gCanvas.getContext('2d');
     drawMeme();
+
+    // set data for user from local storage
+    document.querySelector('#memeText').value = gMeme.txts[gCurrentTxtIdx].line;
+    document.querySelector('select').value = gMeme.txts[gCurrentTxtIdx].font;
 }
 
 
@@ -39,6 +43,11 @@ function drawMeme() {
         gCanvas.width = gImg.width;
         gCanvas.height = gImg.height;
     }
+
+    //set default align
+    gMeme.txts.forEach(txt => {
+        txt.align = 'center';
+    })
 
     let starterYPos = 50;
     let starterXPos = gCanvas.width / 2
@@ -72,7 +81,8 @@ function drawText() {
         if (txt.line !== '') {
             let font = txt.font.replace(/\"/g, '')
             gCtx.fillStyle = txt.color;
-            gCtx.font = `${txt.size}px '${font}'`;
+            console.log(gMeme);
+            gCtx.font = `${txt.size}px ${font}`;
             gCtx.textAlign = txt.align;
             gCtx.fillText(txt.line, txt.xPos, txt.yPos);
 
@@ -90,23 +100,27 @@ function onChangeTxtSize(mode) {
 }
 
 function onFontSizeChange(value) {
+    if (!gMeme.txts[gCurrentTxtIdx].line) return;
     gMeme.txts[gCurrentTxtIdx].size = +value;
-    console.log(gMeme.txts[gCurrentTxtIdx]);
+    // console.log(gMeme.txts[gCurrentTxtIdx]);
     updateCanvas();
 }
 
 function changeTxtSize(mode) {
+    if (!gMeme.txts[gCurrentTxtIdx].line) return;
     gMeme.txts[gCurrentTxtIdx].size += mode;
-    console.log(gMeme.txts[gCurrentTxtIdx]);
+    document.getElementById('fontSize').placeholder = gMeme.txts[gCurrentTxtIdx].size;
     updateCanvas();
 }
 
 function onChangeTxtColor(selectedColor) {
+    if (!gMeme.txts[gCurrentTxtIdx].line) return;
     gMeme.txts[gCurrentTxtIdx].color = selectedColor;
     updateCanvas();
 }
 
 function onFontChanged(font) {
+    if (!gMeme.txts[gCurrentTxtIdx].line) return;
     gMeme.txts[gCurrentTxtIdx].font = font;
     updateCanvas();
 }
