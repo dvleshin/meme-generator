@@ -262,6 +262,10 @@ footer {
         margin: 0;
     }
 
+    .filter {
+        padding-top: 66px;
+    }
+
     .menu-btn {
         display: block;
         position: absolute;
