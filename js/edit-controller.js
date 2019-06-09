@@ -40,7 +40,6 @@ function drawMeme() {
         gCanvas.height = gImg.height;
     }
 
-
     let starterYPos = 50;
     let starterXPos = gCanvas.width / 2
 
@@ -71,8 +70,9 @@ function onTxtChanged() {
 function drawText() {
     gMeme.txts.forEach((txt, idx) => {
         if (txt.line !== '') {
+            let font = txt.font.replace(/\"/g, '')
             gCtx.fillStyle = txt.color;
-            gCtx.font = `${txt.size}px '${txt.font}'`;
+            gCtx.font = `${txt.size}px '${font}'`;
             gCtx.textAlign = txt.align;
             gCtx.fillText(txt.line, txt.xPos, txt.yPos);
 
@@ -142,6 +142,7 @@ function downloadImg(elLink) {
     const data = gCanvas.toDataURL();
     elLink.href = data
     elLink.download = 'my-meme.jpg';
+    saveToStorage(KEY, '')
 }
 
 function onAlignTxt(mode) {
