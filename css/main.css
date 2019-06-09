@@ -150,7 +150,6 @@ header {
     height: 154px;
     max-width: 960px;
     background-color: #4f4e4e;
-    color: #f6f6f6;
     margin: 20px auto;
 
     /* justify-content: center; */
@@ -158,7 +157,13 @@ header {
 }
 
 .keywords-container span {
+    color: #f6f6f6;
     cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.keywords-container span:hover {
+    color: #000000;
 }
 
 .word-one {
