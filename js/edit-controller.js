@@ -24,7 +24,6 @@ function drawMeme() {
 
     // calculation of acpect ratio for image resizing
     let acpectRatio = gImg.width / gImg.height;
-    console.log(acpectRatio);
 
     if (window.innerWidth < 620) {
         gCanvas.width = window.innerWidth - 10;
@@ -54,6 +53,7 @@ function drawMeme() {
 
     gImg.onload = () => {
         drawBgImg(gImg);
+        updateCanvas();
     };
 }
 
@@ -115,7 +115,7 @@ function onNextTxt() {
     if (gMeme.txts[gCurrentTxtIdx + 1]) gCurrentTxtIdx++;
     else gCurrentTxtIdx = 0;
     renderCtrlsVals();
-    console.log(gCurrentTxtIdx);
+    // console.log(gCurrentTxtIdx);
 
 }
 
@@ -135,6 +135,7 @@ function updateCanvas() {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
     drawBgImg(gImg);
     drawText();
+    saveToStorage(KEY, gMeme)
 }
 
 function downloadImg(elLink) {
