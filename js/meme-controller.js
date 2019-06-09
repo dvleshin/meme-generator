@@ -3,6 +3,7 @@
 function onInitMain() {
     let imgs = getImgs();
     renderGallery(imgs)
+    renderKeywordsValues();
 }
 
 
@@ -26,4 +27,15 @@ function imgPicked(id) {
 function onMemesFilter(value) {
     let imgs = getMemesFiltered(value);
     renderGallery(imgs)
+    renderKeywordsValues();
+}
+
+function renderKeywordsValues() {
+    const mostSearchedKeywords = getMostSearchedKeywords(5);
+
+    let elKeywords = document.querySelectorAll('.keywords-container span');
+
+    elKeywords.forEach(function (el, idx) {
+        el.innerText = mostSearchedKeywords[idx];
+    });
 }

@@ -146,7 +146,7 @@ header {
 /* Keywords box ---------------------------------------------*/
 
 .keywords-container {
-    height: 204px;
+    height: 154px;
     max-width: 960px;
     background-color: #4f4e4e;
     color: #f6f6f6;
@@ -161,11 +161,23 @@ header {
 }
 
 .word-one {
-    font-size: 30px;
+    font-size: 3.5em;
 }
 
 .word-two {
-    font-size: 60px;
+    font-size: 2.8em;
+}
+
+.word-three {
+    font-size: 2.18em;
+}
+
+.word-four {
+    font-size: 1.56em;
+}
+
+.word-five {
+    font-size: 1em;
 }
 
 /* Gallery box ----------------------------------------------*/
@@ -488,5 +500,9 @@ footer {
 
     .meme-editor {
         margin-top: 70px;
+    }
+
+    .keywords-container {
+        flex-wrap: wrap;
     }
 }

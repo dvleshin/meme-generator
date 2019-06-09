@@ -144,12 +144,16 @@ function setRdnMeme() {
 }
 
 function handleKeywordSearched(keyword) {
-    // var count = gKeywordToCntMap[keyword];
-    // gKeywordToCntMap[keyword] = (count) ? count + 1 : 1;
-    // console.log(gKeywordToCntMap);
     if (!(gKeywordToCntMap[keyword] || gKeywordToCntMap[keyword] === 0)) return;
 
     gKeywordToCntMap[keyword]++;
-    console.log(gKeywordToCntMap);
+}
 
+function getMostSearchedKeywords(size) {
+    var keys = Object.keys(gKeywordToCntMap);
+    keys.sort(function (a, b) {
+        return gKeywordToCntMap[b] - gKeywordToCntMap[a];
+    })
+
+    return keys.slice(0, size);
 }
