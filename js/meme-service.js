@@ -2,6 +2,31 @@
 const KEY = 'userMeme'
 let gKeywords;
 let gMeme;
+let gKeywordToCntMap = {
+    man: 2,
+    child: 1,
+    woman: 0,
+    happy: 0,
+    nature: 0,
+    cunning: 0,
+    smart: 0,
+    funny: 0,
+    obama: 0,
+    laughs: 0,
+    men: 0,
+    kiss: 0,
+    children: 0,
+    dance: 0,
+    fun: 0,
+    tramp: 0,
+    angry: 0,
+    black: 0,
+    surprised: 0,
+    dog: 0,
+    stretching: 0,
+    cheers: 0,
+    dicaprio: 0
+};
 
 let gImgs = [{
         id: 1,
@@ -103,13 +128,28 @@ function getMemesFiltered(value) {
 
     var regex = new RegExp(` ${value}`, 'i');
     var filteredImgs = gImgs.filter(img => {
-        let keywordsStr = ' ' + img.keywords.join(' ') // space for serching every keyword (You can use any char by changing regex)
+        let keywordsStr = ' ' + img.keywords.join(' ') // space for searching every keyword (You can use any char by changing regex)
         return regex.exec(keywordsStr);
     })
+
+    console.log(filteredImgs);
+    if (filteredImgs.length) handleKeywordSearched(value);
+
     return filteredImgs;
 }
 
 function setRdnMeme() {
     let rndNumId = getRandomInt(1, gImgs.length);
     setMeme(rndNumId);
+}
+
+function handleKeywordSearched(keyword) {
+    // var count = gKeywordToCntMap[keyword];
+    // gKeywordToCntMap[keyword] = (count) ? count + 1 : 1;
+    // console.log(gKeywordToCntMap);
+    if (!(gKeywordToCntMap[keyword] || gKeywordToCntMap[keyword] === 0)) return;
+
+    gKeywordToCntMap[keyword]++;
+    console.log(gKeywordToCntMap);
+
 }

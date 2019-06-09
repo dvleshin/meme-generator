@@ -110,7 +110,7 @@ header {
     border: 1px solid #ccc;
     border-radius: 5px;
     overflow: hidden;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     margin-left: 20px;
     margin-right: 20px;
 }
@@ -141,6 +141,31 @@ header {
     grid-column: 2/4;
     grid-row: 1;
     outline: none;
+}
+
+/* Keywords box ---------------------------------------------*/
+
+.keywords-container {
+    height: 204px;
+    max-width: 960px;
+    background-color: #4f4e4e;
+    color: #f6f6f6;
+    margin: 20px auto;
+
+    /* justify-content: center; */
+    justify-content: space-evenly;
+}
+
+.keywords-container span {
+    cursor: pointer;
+}
+
+.word-one {
+    font-size: 30px;
+}
+
+.word-two {
+    font-size: 60px;
 }
 
 /* Gallery box ----------------------------------------------*/
