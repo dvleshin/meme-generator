@@ -26,7 +26,7 @@ function drawMeme() {
     gImg.src = imgUrl;
 
 
-    // calculation of acpect ratio for image resizing
+    // calculation of aspect ratio for image resizing
     let acpectRatio = gImg.width / gImg.height;
 
     if (window.innerWidth < 620) {

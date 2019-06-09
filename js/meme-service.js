@@ -2,31 +2,7 @@
 const KEY = 'userMeme'
 let gKeywords;
 let gMeme;
-let gKeywordToCntMap = {
-    man: 2,
-    child: 1,
-    woman: 0,
-    happy: 0,
-    nature: 0,
-    cunning: 0,
-    smart: 0,
-    funny: 0,
-    obama: 0,
-    laughs: 0,
-    men: 0,
-    kiss: 0,
-    children: 0,
-    dance: 0,
-    fun: 0,
-    tramp: 0,
-    angry: 0,
-    black: 0,
-    surprised: 0,
-    dog: 0,
-    stretching: 0,
-    cheers: 0,
-    dicaprio: 0
-};
+let gKeywordToCntMap;
 
 let gImgs = [{
         id: 1,
@@ -143,10 +119,44 @@ function setRdnMeme() {
     setMeme(rndNumId);
 }
 
+function createKeywordToCntMap() {
+    let keywordToCntMap = loadFromStorage('KeywordToCntMap');
+    if (!keywordToCntMap) {
+        keywordToCntMap = {
+            man: 2,
+            child: 1,
+            woman: 0,
+            happy: 0,
+            nature: 0,
+            cunning: 0,
+            smart: 0,
+            funny: 0,
+            obama: 0,
+            laughs: 0,
+            men: 0,
+            kiss: 0,
+            children: 0,
+            dance: 0,
+            fun: 0,
+            tramp: 0,
+            angry: 0,
+            black: 0,
+            surprised: 0,
+            dog: 0,
+            stretching: 0,
+            cheers: 0,
+            dicaprio: 0
+        };
+    }
+    gKeywordToCntMap = keywordToCntMap;
+    saveKeywordToCntMap();
+}
+
 function handleKeywordSearched(keyword) {
     if (!(gKeywordToCntMap[keyword] || gKeywordToCntMap[keyword] === 0)) return;
 
     gKeywordToCntMap[keyword]++;
+    saveKeywordToCntMap();
 }
 
 function getMostSearchedKeywords(size) {
@@ -156,4 +166,8 @@ function getMostSearchedKeywords(size) {
     })
 
     return keys.slice(0, size);
+}
+
+function saveKeywordToCntMap() {
+    saveToStorage('KeywordToCntMap', gKeywordToCntMap);
 }
