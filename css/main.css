@@ -218,6 +218,19 @@ meme {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+.upload-img {
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-img input {
+    display: none;
+}
+
+.upload-img img {
+    cursor: pointer;
+}
+
 /* Email form box ----------------------------------------------*/
 .email {
     width: 100%;

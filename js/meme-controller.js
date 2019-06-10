@@ -17,7 +17,15 @@ function renderGallery(imgs) {
             </meme>
             `
     })
-    document.querySelector('.memes-imgs').innerHTML = strHtmls.join('');
+    document.querySelector('.memes-imgs').innerHTML = `
+        <meme class="upload-img flex">
+            <label for="meme-upload">
+            <img src="../img/upload.png">
+            </label>
+            <input type="file" id="meme-upload" name="image" onchange="onFileInputChange(event)" />
+        </meme>
+    ${strHtmls.join('')}
+    `
 }
 
 function imgPicked(id) {
@@ -44,4 +52,17 @@ function renderKeywordsValues() {
     elKeywords.forEach(function (el, idx) {
         el.innerText = mostSearchedKeywords[idx];
     });
+}
+
+function onFileInputChange(event) {
+    let reader = new FileReader();
+    console.log(reader);
+
+    debugger;
+    reader.onload = function (event) {
+        let img = new Image();
+        console.log(img);
+        img.src = event.target.result;
+    }
+
 }
