@@ -702,6 +702,11 @@ footer {
         background-color: #4f4e4e;
         padding-top: 45px;
         height: 60px;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .main-nav-list a:hover {
+        background-color: #828FBB;
     }
 
     .meme-editor {

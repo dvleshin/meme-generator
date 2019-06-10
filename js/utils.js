@@ -19,6 +19,8 @@ function toggleMenu() {
     if (navToggle.style.display === '' || navToggle.style.display === 'none') {
         navToggle.style.display = 'block';
         document.querySelector('.menu-btn').innerHTML = '❌';
+
+        animate(navToggle, 'slideInLeft');
     } else {
         navToggle.style.display = ''
         document.querySelector('.menu-btn').innerHTML = '☰'
