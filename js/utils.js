@@ -60,3 +60,9 @@ function toggleAboutModal() {
         setTimeout(() => elModal.classList.remove('animated', 'fadeInDownBig'), 1000);
     }
 }
+
+function animate(el, animName) {
+    el.classList.add('animated', animName);
+
+    setTimeout(() => el.classList.remove('animated', animName), 1000);
+}

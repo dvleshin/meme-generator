@@ -94,8 +94,8 @@ function drawText() {
     });
 }
 
-function onChangeTxtSize(mode) {
-    changeTxtSize(mode);
+function onChangeTxtSize(elBtn, mode) {
+    changeTxtSize(elBtn, mode);
 }
 
 function onFontSizeChange(value) {
@@ -105,11 +105,13 @@ function onFontSizeChange(value) {
     updateCanvas();
 }
 
-function changeTxtSize(mode) {
+function changeTxtSize(elBtn, mode) {
     if (!gMeme.txts[gCurrentTxtIdx].line) return;
     gMeme.txts[gCurrentTxtIdx].size += mode;
     document.getElementById('fontSize').placeholder = gMeme.txts[gCurrentTxtIdx].size;
     updateCanvas();
+
+    animate(elBtn, 'pulse');
 }
 
 function onChangeTxtColor(selectedColor) {
@@ -129,9 +131,7 @@ function onNextTxt(elBtn) {
     else gCurrentTxtIdx = 0;
     renderCtrlsVals();
 
-    elBtn.classList.add('animated', 'flash');
-
-    setTimeout(() => elBtn.classList.remove('animated', 'flash'), 1000);
+    animate(elBtn, 'flash');
 }
 
 function renderCtrlsVals() {
@@ -140,10 +140,12 @@ function renderCtrlsVals() {
     document.querySelector('select').value = gMeme.txts[gCurrentTxtIdx].font;
 }
 
-function onTxtToggleUpDown(mode) {
+function onTxtToggleUpDown(elBtn, mode) {
     gMeme.txts[gCurrentTxtIdx].yPos += mode;
 
     updateCanvas();
+
+    animate(elBtn, 'pulse');
 }
 
 function updateCanvas() {
@@ -160,7 +162,7 @@ function downloadImg(elLink) {
     saveToStorage(KEY, '')
 }
 
-function onAlignTxt(mode) {
+function onAlignTxt(elSpan, mode) {
 
     if (mode === 'left') {
         gMeme.txts[gCurrentTxtIdx].align = 'left'
@@ -173,6 +175,8 @@ function onAlignTxt(mode) {
         gMeme.txts[gCurrentTxtIdx].xPos = gCanvas.width / 2;
     }
     updateCanvas();
+
+    animate(elSpan, 'pulse');
 }
 
 function onClearCanvas(elBtn) {
@@ -183,7 +187,5 @@ function onClearCanvas(elBtn) {
     document.querySelector('#memeText').value = '';
     document.querySelector('select').value = 'Impact';
 
-    elBtn.classList.add('animated', 'flip');
-
-    setTimeout(() => elBtn.classList.remove('animated', 'flip'), 1000);
+    animate(elBtn, 'flip');
 }
