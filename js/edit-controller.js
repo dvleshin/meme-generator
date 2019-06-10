@@ -25,13 +25,7 @@ function onInitEditor() {
     document.querySelector('select').value = gMeme.txts[gCurrentTxtIdx].font;
 }
 
-
-function drawMeme() {
-
-    let memeObj = getMemeImgById(gMeme.selectedImgId);
-    let imgUrl = memeObj.url;
-    gImg.src = imgUrl;
-    // calculation of aspect ratio for image resizing
+function renderResCanvas() {
     let acpectRatio = gImg.width / gImg.height;
 
     if (window.innerWidth < 620) {
@@ -48,6 +42,17 @@ function drawMeme() {
         gCanvas.width = gImg.width;
         gCanvas.height = gImg.height;
     }
+}
+
+
+function drawMeme() {
+
+    let memeObj = getMemeImgById(gMeme.selectedImgId);
+    let imgUrl = memeObj.url;
+    gImg.src = imgUrl;
+    // calculation of aspect ratio for image resizing
+
+    renderResCanvas()
 
     //set default align
     gMeme.txts.forEach(txt => {
@@ -199,17 +204,11 @@ function onFileInputChange(event) {
     let reader = new FileReader();
 
     reader.onload = function (event) {
-        let userImg = new Image();
-        let userMode = true;
-        userImg.src = event.target.result;
-        console.log(userImg.src);
-        userModeOn(userMode, userImg);
-
-        document.querySelector('.upload-img img').style.display = 'none';
-        document.getElementById('loading-gif').style.display = '';
-        // setTimeout(() => {
-        //     window.location.replace('editor.html');
-        // }, 3000)
+        gImg.src = event.target.result;
+        renderResCanvas()
+        // drawBgImg(userImg)
+        // img.onload = drawBgImg.bind(null, img)
+        // console.log(userImg.src);
 
     }
     reader.readAsDataURL(event.target.files[0]);

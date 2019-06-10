@@ -67,13 +67,14 @@
                     </select>
                 </div>
                 <div id="upload-img" style="display:none">
-                    <a href="#" onclick="" class="download-img"><i
-                            class="fas fa-download icon"></i><span>Upload</span></a>
+                    <label for="meme-upload" class="download-img">UPLOAD</label>
+                    <input type="file" id="meme-upload" name="image" onchange="onFileInputChange(event)"
+                        style="display: none" />
                 </div>
 
 
-                <a href="#" onclick="downloadImg(this)" class="download-img"><i
-                        class="fas fa-download icon"></i><span>Download</span></a>
+                <a href="#" onclick="downloadImg(this)" class="download-img"><i class="fas fa-download icon"></i><span>
+                        <span>Download</span></a>
 
             </div>
         </section>

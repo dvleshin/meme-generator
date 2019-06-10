@@ -17,16 +17,7 @@ function renderGallery(imgs) {
             </meme>
             `
     })
-    document.querySelector('.memes-imgs').innerHTML = `
-        <!-- <meme class="upload-img flex">
-            <label for="meme-upload">
-            <img src="img/upload.png">
-            </label>
-            <img src="img/loading.gif" id="loading-gif" style="display:none">
-            <input type="file" id="meme-upload" name="image" onchange="onFileInputChange(event)" />
-        </meme> -->
-    ${strHtmls.join('')}
-    `
+    document.querySelector('.memes-imgs').innerHTML = strHtmls.join('')
 }
 
 function imgPicked(id) {
