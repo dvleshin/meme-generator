@@ -66,15 +66,19 @@
                         <option value="Arial">Arial</option>
                     </select>
                 </div>
-                <div id="upload-img" style="display:none">
-                    <label for="meme-upload" class="upload-img"><i class="fas fa-upload icon"></i>UPLOAD</label>
+                <div class="flex buttons-box">
+                    <label for="meme-upload" id="upload-img" style="display:none" class="upload-img"><i
+                            class="fas fa-upload icon"></i>UPLOAD</label>
                     <input type="file" id="meme-upload" name="image" onchange="onFileInputChange(event)"
                         style="display: none" />
+
+                    <a href="#" onclick="downloadImg(this)" class="download-img"><i
+                            class="fas fa-download icon"></i><span>
+                            <span>Download</span></a>
+
                 </div>
 
 
-                <a href="#" onclick="downloadImg(this)" class="download-img"><i class="fas fa-download icon"></i><span>
-                        <span>Download</span></a>
 
             </div>
         </section>
