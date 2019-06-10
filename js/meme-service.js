@@ -109,7 +109,8 @@ function getMemesFiltered(value) {
     })
 
     console.log(filteredImgs);
-    if (filteredImgs.length) handleKeywordSearched(value);
+    // if (filteredImgs.length) handleKeywordSearched(value);
+    handleKeywordSearched(value);
 
     return filteredImgs;
 }
@@ -123,29 +124,11 @@ function createKeywordToCntMap() {
     let keywordToCntMap = loadFromStorage('KeywordToCntMap');
     if (!keywordToCntMap) {
         keywordToCntMap = {
-            man: 2,
+            man: 1,
             child: 1,
-            woman: 0,
-            happy: 0,
-            nature: 0,
-            cunning: 0,
-            smart: 0,
-            funny: 0,
-            obama: 0,
-            laughs: 0,
-            men: 0,
-            kiss: 0,
-            children: 0,
-            dance: 0,
-            fun: 0,
-            tramp: 0,
-            angry: 0,
-            black: 0,
-            surprised: 0,
-            dog: 0,
-            stretching: 0,
-            cheers: 0,
-            dicaprio: 0
+            funny: 1,
+            fun: 1,
+            woman: 1,
         };
     }
     gKeywordToCntMap = keywordToCntMap;
@@ -153,9 +136,17 @@ function createKeywordToCntMap() {
 }
 
 function handleKeywordSearched(keyword) {
-    if (!(gKeywordToCntMap[keyword] || gKeywordToCntMap[keyword] === 0)) return;
+    // if (!(gKeywordToCntMap[keyword] || gKeywordToCntMap[keyword] === 0)) return;
 
-    gKeywordToCntMap[keyword]++;
+    // gKeywordToCntMap[keyword]++;
+    // saveKeywordToCntMap();
+
+    var count = gKeywordToCntMap[keyword];
+
+    if (keyword) {
+        gKeywordToCntMap[keyword] = (count) ? count + 1 : 1;
+    }
+
     saveKeywordToCntMap();
 }
 
