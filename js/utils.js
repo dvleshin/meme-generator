@@ -50,10 +50,6 @@ function sendEmail() {
 
 }
 
-function openAboutModal() {
-    document.querySelector('.modal').style.display = 'block';
-}
-
-function closeModal() {
-    document.querySelector('.modal').style.display = 'none';
+function toggleAboutModal() {
+    document.querySelector('.modal').classList.toggle('show');
 }

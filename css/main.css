@@ -540,6 +540,10 @@ footer {
     opacity: 0.9;
 }
 
+.show {
+    display: block;
+}
+
 /* Media ----------------------------------------------*/
 
 @media (max-width: 980px) {

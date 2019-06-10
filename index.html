@@ -20,7 +20,7 @@
             <nav class="main-nav">
                 <ul class="main-nav-list flex">
                     <li><a href="index.html">Gallery</a></li>
-                    <li><a onclick="openAboutModal()">About</a></li>
+                    <li><a onclick="toggleAboutModal()">About</a></li>
                     <li><a href="#" onclick="openContact()">Get in touch</a></li>
                 </ul>
             </nav>
@@ -73,7 +73,7 @@
             <p>After you finish editing the text on the picture you can download it with the text.
                 It will be saved on your computer.</p>
             <!-- End of Dynamic Section -->
-            <button onclick="closeModal()" title="Close" class="close_modal">
+            <button onclick="toggleAboutModal()" title="Close" class="close_modal">
                 <i class="fas fa-times"></i>
             </button>
         </div>

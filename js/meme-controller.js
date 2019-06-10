@@ -13,7 +13,7 @@ function renderGallery(imgs) {
     var strHtmls = imgs.map(img => {
         return `
             <meme>
-            <a href="editor.html" onclick="imgPicked(${img.id})"><img src="${img.url}" class="meme-img"></a>
+            <a href="editor.html" onclick="imgPicked(${img.id})"><img src="${img.url}" onmouseover="onImgHovered(this)" class="meme-img"></a>
             </meme>
             `
     })
@@ -23,6 +23,12 @@ function renderGallery(imgs) {
 function imgPicked(id) {
     // console.log('img picked:', id);
     setMeme(id);
+}
+
+function onImgHovered(elImg) {
+    elImg.classList.add('shake');
+    console.log('img hovered');
+
 }
 
 function onMemesFilter(value) {
