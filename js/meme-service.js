@@ -162,3 +162,19 @@ function getMostSearchedKeywords(size) {
 function saveKeywordToCntMap() {
     saveToStorage('KeywordToCntMap', gKeywordToCntMap);
 }
+
+function clearCanvas() {
+    gMeme.txts = [];
+    for (var i = 0; i < 3; i++) {
+        gMeme.txts.push({
+            line: '',
+            size: 50,
+            align: 'center',
+            color: '#ffffff',
+            font: 'Impact',
+            xPos: 0,
+            yPos: 0
+        })
+    }
+    saveToStorage(KEY, gMeme);
+}
