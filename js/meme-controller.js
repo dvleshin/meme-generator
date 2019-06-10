@@ -26,9 +26,8 @@ function imgPicked(id) {
 }
 
 function onImgHovered(elImg) {
-    elImg.classList.add('shake');
-    console.log('img hovered');
-
+    elImg.classList.add('animated', 'pulse');
+    setTimeout(() => elImg.classList.remove('animated', 'pulse'), 1000);
 }
 
 function onMemesFilter(value) {
