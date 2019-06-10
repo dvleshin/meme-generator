@@ -173,3 +173,10 @@ function onAlignTxt(mode) {
     }
     updateCanvas();
 }
+
+function onClearCanvas() {
+    clearCanvas();
+    updateCanvas();
+    document.querySelector('#memeText').value = '';
+    document.querySelector('select').value = 'Impact';
+}

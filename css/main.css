@@ -282,6 +282,7 @@ textarea {
     max-width: 960px;
     justify-content: space-between;
     margin: 0 auto;
+    margin-bottom: 10px;
 }
 
 .meme-box {
@@ -345,8 +346,9 @@ textarea {
 
 .font-size-input {
     grid-row: 2;
-    grid-column: 2/4;
+    grid-column: 2/3;
     height: 25px;
+    width: 60px;
     padding-left: 3px;
     margin: 0;
     outline: 0;
@@ -357,9 +359,19 @@ textarea {
     border-image: none;
 }
 
+.trash-btn {
+    grid-row: 2;
+    grid-column: 5/6;
+    margin: 0 auto;
+    padding: 5px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 29px;
+}
+
 .big-size-btn {
     grid-row: 2;
-    grid-column: 4/5;
+    grid-column: 3/4;
     width: 45px;
     font-size: 40px;
     color: #fff;
@@ -372,7 +384,7 @@ textarea {
 
 .small-size-btn {
     grid-row: 2;
-    grid-column: 5/6;
+    grid-column: 4/5;
     width: 45px;
     font-size: 40px;
     color: #fff;
