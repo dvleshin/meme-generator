@@ -5,6 +5,10 @@ let gMeme;
 let gKeywordToCntMap;
 
 let gImgs = [{
+        id: 0,
+        url: 'img/0.jpg',
+        keywords: ['', '', ''],
+    }, {
         id: 1,
         url: 'img/1.jpg',
         keywords: ['woman', 'happy', 'nature'],
@@ -177,6 +181,15 @@ function clearCanvas() {
         })
     }
     saveToStorage(KEY, gMeme);
+}
+
+
+function userModeOn(userMode, userImg) {
+    let mode = {
+        userImg: userImg.src,
+        isOn: userMode,
+    }
+    saveToStorage('userMode', mode)
 }
 
 function uploadUsrImg(elForm, event) {

@@ -1,5 +1,4 @@
 'use strict';
-let gUserImg;
 
 function onInitMain() {
     let imgs = getImgs();
@@ -19,18 +18,13 @@ function renderGallery(imgs) {
             `
     })
     document.querySelector('.memes-imgs').innerHTML = `
-        <meme class="upload-img flex">
+        <!-- <meme class="upload-img flex">
             <label for="meme-upload">
             <img src="img/upload.png">
             </label>
-            <input type="file" id="meme-upload" name="image" onchange="onFileInputChange(this, event)" />
-            <div> 
-            <form action="" method="POST" enctype="multipart/form-data" onsubmit="onUploadUsrImg(this, event)">
-                <input name="img" id="imgData" type="hidden"/>
-                <button>edit</button>
-            </form>
-            </div>
-        </meme>
+            <img src="img/loading.gif" id="loading-gif" style="display:none">
+            <input type="file" id="meme-upload" name="image" onchange="onFileInputChange(event)" />
+        </meme> -->
     ${strHtmls.join('')}
     `
 }
@@ -61,20 +55,8 @@ function renderKeywordsValues() {
     });
 }
 
-function onFileInputChange(elForm, event) {
-    let reader = new FileReader();
-
-    reader.onload = function (event) {
-        gUserImg = new Image();
-        gUserImg.src = event.target.result;
-        console.log(gUserImg.src);
-    }
-    reader.readAsDataURL(event.target.files[0]);
-    document.querySelector('.upload-img label').style.display = 'none';
-}
-
-function onUploadUsrImg(elForm, ev) {
-    ev.preventDefault();
-    document.getElementById('imgData').value = gUserImg.src;
-    uploadUsrImg(elForm, onSuccess);
-}
+// function onUploadUsrImg(elForm, ev) {
+//     ev.preventDefault();
+//     document.getElementById('imgData').value = gUserImg.src;
+//     uploadUsrImg(elForm, onSuccess);
+// }

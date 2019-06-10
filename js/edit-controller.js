@@ -10,6 +10,12 @@ function onInitEditor() {
         setRdnMeme();
         gMeme = loadFromStorage(KEY);
     }
+
+    if (gMeme.selectedImgId === 0) {
+        console.log('user mode');
+        document.getElementById('upload-img').style.display = '';
+    }
+
     gCanvas = document.getElementById('meme-area');
     gCtx = gCanvas.getContext('2d');
     drawMeme();
@@ -21,11 +27,10 @@ function onInitEditor() {
 
 
 function drawMeme() {
+
     let memeObj = getMemeImgById(gMeme.selectedImgId);
     let imgUrl = memeObj.url;
     gImg.src = imgUrl;
-
-
     // calculation of aspect ratio for image resizing
     let acpectRatio = gImg.width / gImg.height;
 
@@ -188,4 +193,24 @@ function onClearCanvas(elBtn) {
     document.querySelector('select').value = 'Impact';
 
     animate(elBtn, 'flip');
+}
+
+function onFileInputChange(event) {
+    let reader = new FileReader();
+
+    reader.onload = function (event) {
+        let userImg = new Image();
+        let userMode = true;
+        userImg.src = event.target.result;
+        console.log(userImg.src);
+        userModeOn(userMode, userImg);
+
+        document.querySelector('.upload-img img').style.display = 'none';
+        document.getElementById('loading-gif').style.display = '';
+        // setTimeout(() => {
+        //     window.location.replace('editor.html');
+        // }, 3000)
+
+    }
+    reader.readAsDataURL(event.target.files[0]);
 }
