@@ -276,14 +276,16 @@ textarea {
     display: none;
 }
 
-/* Gallery box ----------------------------------------------*/
-
 /* (Main) .meme-editor ---------------------------------------*/
 
 .meme-editor {
     max-width: 960px;
     justify-content: space-between;
     margin: 0 auto;
+}
+
+.meme-box {
+    flex-direction: column;
 }
 
 /* Control box ----------------------------------------------*/
@@ -447,7 +449,7 @@ textarea {
     background-color: #00CBA7;
     text-decoration: none;
     text-align: center;
-    margin: 5px 0;
+    margin: 5px 0 0;
     font-size: 20px;
     border-radius: 10px;
     color: white;
@@ -461,6 +463,23 @@ textarea {
 
 .icon {
     padding-right: 10px;
+}
+
+.back-to-gallery-btn {
+    padding: 10px;
+    background-color: #D5A419;
+    text-decoration: none;
+    text-align: center;
+    margin: 0 0 6px;
+    font-size: 16px;
+    border-radius: 7px;
+    color: white;
+    transition: .3s;
+    text-transform: uppercase;
+}
+
+.back-to-gallery-btn:hover {
+    background-color: rgba(213, 164, 25, 0.7)
 }
 
 /* Footer box ----------------------------------------------*/
@@ -561,8 +580,16 @@ footer {
         flex-direction: column;
     }
 
-    .meme-canvas {
+    .meme-box {
         margin: 0 auto;
+    }
+
+    .control-box {
+        margin-top: 5px;
+    }
+
+    .download-img {
+        margin-bottom: 5px;
     }
 }
 
