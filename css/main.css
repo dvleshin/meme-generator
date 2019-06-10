@@ -468,6 +468,10 @@ textarea {
     outline: 0;
 }
 
+.buttons-box {
+    flex-direction: column;
+}
+
 .download-img {
     padding: 10px;
     background-color: #00CBA7;
@@ -484,6 +488,7 @@ textarea {
 .download-img:hover {
     background-color: rgba(0, 203, 167, 0.7)
 }
+
 
 .upload-img {
     padding: 10px;
