@@ -44,6 +44,18 @@ function renderResCanvas() {
     }
 }
 
+function setStartTxtPoses() {
+    let starterYPos = 50;
+    let starterXPos = gCanvas.width / 2
+
+    gMeme.txts[0].xPos = starterXPos;
+    gMeme.txts[0].yPos = starterYPos;
+    gMeme.txts[1].xPos = starterXPos;
+    gMeme.txts[1].yPos = gCanvas.height - 20;
+    gMeme.txts[2].xPos = starterXPos;
+    gMeme.txts[2].yPos = (gCanvas.height / 2) + 15;
+
+}
 
 function drawMeme() {
 
@@ -59,15 +71,7 @@ function drawMeme() {
         txt.align = 'center';
     })
 
-    let starterYPos = 50;
-    let starterXPos = gCanvas.width / 2
-
-    gMeme.txts[0].xPos = starterXPos;
-    gMeme.txts[0].yPos = starterYPos;
-    gMeme.txts[1].xPos = starterXPos;
-    gMeme.txts[1].yPos = gCanvas.height - 20;
-    gMeme.txts[2].xPos = starterXPos;
-    gMeme.txts[2].yPos = (gCanvas.height / 2) + 15;
+    setStartTxtPoses();
 
     gImg.onload = () => {
         drawBgImg(gImg);
@@ -205,11 +209,11 @@ function onFileInputChange(event) {
 
     reader.onload = function (event) {
         gImg.src = event.target.result;
-        renderResCanvas()
-        // drawBgImg(userImg)
-        // img.onload = drawBgImg.bind(null, img)
-        // console.log(userImg.src);
-
+        gImg.onload = () => {
+            renderResCanvas();
+            setStartTxtPoses();
+            updateCanvas();
+        };
     }
     reader.readAsDataURL(event.target.files[0]);
 }
