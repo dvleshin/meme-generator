@@ -178,3 +178,27 @@ function clearCanvas() {
     }
     saveToStorage(KEY, gMeme);
 }
+
+function uploadUsrImg(elForm, event) {
+    console.log(elForm, event);
+
+    var formData = new FormData(elForm);
+    console.log(formData);
+
+    fetch('http://ca-upload.com/here/upload.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(function (response) {
+            return response.text()
+        })
+        .then(onSuccess)
+        .catch(function (error) {
+            console.error(error)
+        })
+}
+
+function onSuccess(uploadedImgUrl) {
+    console.log('uploadedImgUrl', uploadedImgUrl);
+    uploadedImgUrl = encodeURIComponent(uploadedImgUrl)
+}
