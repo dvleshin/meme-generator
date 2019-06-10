@@ -327,6 +327,19 @@ textarea {
 
 .controllers {
     background-color: #424656;
+    border-radius: 8px;
+}
+
+.controllers button,
+.controllers span,
+.controllers select {
+    transition: color .3s ease-in-out;
+}
+
+.controllers button:hover,
+.controllers span:hover,
+.controllers select:hover {
+    color: #ccc;
 }
 
 .text-input {

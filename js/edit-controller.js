@@ -81,7 +81,6 @@ function drawText() {
         if (txt.line !== '') {
             let font = txt.font.replace(/\"/g, '')
             gCtx.fillStyle = txt.color;
-            console.log(gMeme);
             gCtx.font = `${txt.size}px ${font}`;
             gCtx.textAlign = txt.align;
             gCtx.fillText(txt.line, txt.xPos, txt.yPos);
@@ -95,8 +94,8 @@ function drawText() {
     });
 }
 
-function onChangeTxtSize(mode) {
-    changeTxtSize(mode);
+function onChangeTxtSize(elBtn, mode) {
+    changeTxtSize(elBtn, mode);
 }
 
 function onFontSizeChange(value) {
@@ -106,11 +105,13 @@ function onFontSizeChange(value) {
     updateCanvas();
 }
 
-function changeTxtSize(mode) {
+function changeTxtSize(elBtn, mode) {
     if (!gMeme.txts[gCurrentTxtIdx].line) return;
     gMeme.txts[gCurrentTxtIdx].size += mode;
     document.getElementById('fontSize').placeholder = gMeme.txts[gCurrentTxtIdx].size;
     updateCanvas();
+
+    animate(elBtn, 'pulse');
 }
 
 function onChangeTxtColor(selectedColor) {
@@ -125,12 +126,12 @@ function onFontChanged(font) {
     updateCanvas();
 }
 
-function onNextTxt() {
+function onNextTxt(elBtn) {
     if (gMeme.txts[gCurrentTxtIdx + 1]) gCurrentTxtIdx++;
     else gCurrentTxtIdx = 0;
     renderCtrlsVals();
-    // console.log(gCurrentTxtIdx);
 
+    animate(elBtn, 'flash');
 }
 
 function renderCtrlsVals() {
@@ -139,10 +140,12 @@ function renderCtrlsVals() {
     document.querySelector('select').value = gMeme.txts[gCurrentTxtIdx].font;
 }
 
-function onTxtToggleUpDown(mode) {
+function onTxtToggleUpDown(elBtn, mode) {
     gMeme.txts[gCurrentTxtIdx].yPos += mode;
 
     updateCanvas();
+
+    animate(elBtn, 'pulse');
 }
 
 function updateCanvas() {
@@ -159,7 +162,7 @@ function downloadImg(elLink) {
     saveToStorage(KEY, '')
 }
 
-function onAlignTxt(mode) {
+function onAlignTxt(elSpan, mode) {
 
     if (mode === 'left') {
         gMeme.txts[gCurrentTxtIdx].align = 'left'
@@ -172,11 +175,17 @@ function onAlignTxt(mode) {
         gMeme.txts[gCurrentTxtIdx].xPos = gCanvas.width / 2;
     }
     updateCanvas();
+
+    animate(elSpan, 'pulse');
 }
 
-function onClearCanvas() {
+function onClearCanvas(elBtn) {
     clearCanvas();
+    gCurrentTxtIdx = 0;
+    drawMeme();
     updateCanvas();
     document.querySelector('#memeText').value = '';
     document.querySelector('select').value = 'Impact';
+
+    animate(elBtn, 'flip');
 }

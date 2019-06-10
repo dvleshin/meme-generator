@@ -42,19 +42,19 @@
                         value="#000000">
                     <input class="font-size-input" type="text" onkeyup="onFontSizeChange(this.value)"
                         placeholder="font size" id="fontSize">
-                    <span class="trash-btn" onclick="onClearCanvas()" class="align"><i
+                    <span class="trash-btn" onclick="onClearCanvas(this)" class="align"><i
                             class="far fa-trash-alt"></i></span>
-                    <button class="big-size-btn" onclick="onChangeTxtSize(1)">+</button>
-                    <button class="small-size-btn" onclick="onChangeTxtSize(-1)">-</button>
-                    <button class="textUp-btn" onclick="onTxtToggleUpDown(-1)">▲</button>
-                    <button class="textDown-btn" onclick="onTxtToggleUpDown(1)">▼</button>
-                    <span class="aligh-btn" onclick="onAlignTxt('left')" class="align"><i
+                    <button class="big-size-btn" onclick="onChangeTxtSize(this, 5)">+</button>
+                    <button class="small-size-btn" onclick="onChangeTxtSize(this, -5)">-</button>
+                    <button class="textUp-btn" onclick="onTxtToggleUpDown(this, -5)">▲</button>
+                    <button class="textDown-btn" onclick="onTxtToggleUpDown(this, 5)">▼</button>
+                    <span class="aligh-btn" onclick="onAlignTxt(this, 'left')" class="align"><i
                             class="fas fa-align-left"></i></span>
-                    <span class="aligh-btn" onclick="onAlignTxt('center')" class="align"><i
+                    <span class="aligh-btn" onclick="onAlignTxt(this, 'center')" class="align"><i
                             class="fas fa-align-center"></i></span>
-                    <span class="aligh-btn" onclick="onAlignTxt('right')" class="align"><i
+                    <span class="aligh-btn" onclick="onAlignTxt(this, 'right')" class="align"><i
                             class="fas fa-align-right"></i></span>
-                    <button class="next-line-btn grid-row" onclick="onNextTxt()">next text line</button>
+                    <button class="next-line-btn grid-row" onclick="onNextTxt(this)">next text line</button>
                     <select class="text-font-select grid-row" onchange="onFontChanged(this.value)">
                         <option value="Impact">Impact</option>
                         <option value="Zapfino">Zapfino</option>
