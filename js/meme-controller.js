@@ -21,7 +21,7 @@ function renderGallery(imgs) {
     document.querySelector('.memes-imgs').innerHTML = `
         <meme class="upload-img flex">
             <label for="meme-upload">
-            <img src="../img/upload.png">
+            <img src="img/upload.png">
             </label>
             <input type="file" id="meme-upload" name="image" onchange="onFileInputChange(this, event)" />
             <div> 
@@ -73,8 +73,8 @@ function onFileInputChange(elForm, event) {
     document.querySelector('.upload-img label').style.display = 'none';
 }
 
-function onUploadUsrImg(elForm, ev) {
-    ev.preventDefault();
-    document.getElementById('imgData').value = gUserImg.src;
-    uploadUsrImg(elForm, onSuccess);
-}
+// function onUploadUsrImg(elForm, ev) {
+//     ev.preventDefault();
+//     document.getElementById('imgData').value = gUserImg.src;
+//     uploadUsrImg(elForm, onSuccess);
+// }
