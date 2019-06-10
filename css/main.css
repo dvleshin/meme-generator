@@ -485,6 +485,24 @@ textarea {
     background-color: rgba(0, 203, 167, 0.7)
 }
 
+.upload-img {
+    padding: 10px;
+    background-color: #828FBB;
+    text-decoration: none;
+    text-align: center;
+    margin: 5px 0 0;
+    font-size: 20px;
+    border-radius: 10px;
+    color: white;
+    transition: .3s;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.upload-img:hover {
+    background-color: rgba(130, 143, 187, 0.7)
+}
+
 .icon {
     padding-right: 10px;
 }
