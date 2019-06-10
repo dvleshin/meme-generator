@@ -183,15 +183,6 @@ function clearCanvas() {
     saveToStorage(KEY, gMeme);
 }
 
-
-function userModeOn(userMode, userImg) {
-    let mode = {
-        userImg: userImg.src,
-        isOn: userMode,
-    }
-    saveToStorage('userMode', mode)
-}
-
 function uploadUsrImg(elForm, event) {
     console.log(elForm, event);
 
