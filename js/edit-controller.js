@@ -111,7 +111,7 @@ function onChangeTxtSize(elBtn, mode) {
 function onFontSizeChange(value) {
     if (!gMeme.txts[gCurrentTxtIdx].line) return;
     gMeme.txts[gCurrentTxtIdx].size = +value;
-    // console.log(gMeme.txts[gCurrentTxtIdx]);
+
     updateCanvas();
 }
 
@@ -206,10 +206,6 @@ function onFileInputChange(event) {
     reader.onload = function (event) {
         gImg.src = event.target.result;
         renderResCanvas()
-        // drawBgImg(userImg)
-        // img.onload = drawBgImg.bind(null, img)
-        // console.log(userImg.src);
-
     }
     reader.readAsDataURL(event.target.files[0]);
 }

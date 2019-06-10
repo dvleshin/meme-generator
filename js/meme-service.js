@@ -112,8 +112,6 @@ function getMemesFiltered(value) {
         return regex.exec(keywordsStr);
     })
 
-    console.log(filteredImgs);
-    // if (filteredImgs.length) handleKeywordSearched(value);
     handleKeywordSearched(value);
 
     return filteredImgs;
@@ -140,11 +138,6 @@ function createKeywordToCntMap() {
 }
 
 function handleKeywordSearched(keyword) {
-    // if (!(gKeywordToCntMap[keyword] || gKeywordToCntMap[keyword] === 0)) return;
-
-    // gKeywordToCntMap[keyword]++;
-    // saveKeywordToCntMap();
-
     var count = gKeywordToCntMap[keyword];
 
     if (keyword) {

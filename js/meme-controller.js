@@ -21,7 +21,6 @@ function renderGallery(imgs) {
 }
 
 function imgPicked(id) {
-    // console.log('img picked:', id);
     setMeme(id);
 }
 
@@ -45,9 +44,3 @@ function renderKeywordsValues() {
         el.innerText = mostSearchedKeywords[idx];
     });
 }
-
-// function onUploadUsrImg(elForm, ev) {
-//     ev.preventDefault();
-//     document.getElementById('imgData').value = gUserImg.src;
-//     uploadUsrImg(elForm, onSuccess);
-// }
