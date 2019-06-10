@@ -51,5 +51,12 @@ function sendEmail() {
 }
 
 function toggleAboutModal() {
-    document.querySelector('.modal').classList.toggle('show');
+    var elModal = document.querySelector('.modal');
+    elModal.classList.toggle('show');
+
+    if (elModal.classList.contains('show')) {
+        elModal.classList.add('animated', 'fadeInDownBig');
+
+        setTimeout(() => elModal.classList.remove('animated', 'fadeInDownBig'), 1000);
+    }
 }
