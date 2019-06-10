@@ -81,7 +81,6 @@ function drawText() {
         if (txt.line !== '') {
             let font = txt.font.replace(/\"/g, '')
             gCtx.fillStyle = txt.color;
-            console.log(gMeme);
             gCtx.font = `${txt.size}px ${font}`;
             gCtx.textAlign = txt.align;
             gCtx.fillText(txt.line, txt.xPos, txt.yPos);
@@ -125,12 +124,14 @@ function onFontChanged(font) {
     updateCanvas();
 }
 
-function onNextTxt() {
+function onNextTxt(elBtn) {
     if (gMeme.txts[gCurrentTxtIdx + 1]) gCurrentTxtIdx++;
     else gCurrentTxtIdx = 0;
     renderCtrlsVals();
-    // console.log(gCurrentTxtIdx);
 
+    elBtn.classList.add('animated', 'flash');
+
+    setTimeout(() => elBtn.classList.remove('animated', 'flash'), 1000);
 }
 
 function renderCtrlsVals() {
@@ -174,9 +175,15 @@ function onAlignTxt(mode) {
     updateCanvas();
 }
 
-function onClearCanvas() {
+function onClearCanvas(elBtn) {
     clearCanvas();
+    gCurrentTxtIdx = 0;
+    drawMeme();
     updateCanvas();
     document.querySelector('#memeText').value = '';
     document.querySelector('select').value = 'Impact';
+
+    elBtn.classList.add('animated', 'flip');
+
+    setTimeout(() => elBtn.classList.remove('animated', 'flip'), 1000);
 }
